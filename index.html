@@ -3,195 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeet Hosting</title>
+    <title>Zeet Hosting - Jual Bot & Script</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset dan Global Styling */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        .header {
+        
+        body {
+            background-color: #f5f5f5;
+            color: black;
             text-align: center;
-            padding: 50px;
-            background-color: #222;
-            color: white;
-            font-size: 2rem;
         }
-        .header img {
+
+        /* Halaman Loading */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #loading img {
+            width: 250px;
             margin-top: 20px;
         }
+
+        /* Tulisan Berjalan */
         .marquee {
-            overflow: hidden;
             white-space: nowrap;
-            box-sizing: border-box;
-            background-color: #333;
+            overflow: hidden;
+            background: red;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
             color: white;
-            font-size: 1.5rem;
-            padding: 10px 0;
         }
+
         .marquee span {
             display: inline-block;
             padding-left: 100%;
             animation: marquee 10s linear infinite;
         }
+
         @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
         }
-        .product-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 30px;
-        }
-        .product {
-            background: white;
-            margin: 15px;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 250px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .product:hover {
-            transform: scale(1.05);
-        }
-        .product img {
-            width: 150px; /* Diperbesar */
-            height: 150px; /* Diperbesar */
-        }
-        .product h3 {
-            font-size: 1.2rem;
-            margin-top: 15px;
-        }
-        .product p {
-            font-size: 0.9rem;
-            color: #555;
-        }
-        .contact-info {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 1.2rem;
-        }
-        .contact-info a {
-            color: #4CAF50;
-            text-decoration: none;
-            margin: 0 10px;
+
+        /* Garis Hitam */
+        .garis-hitam {
+            background: black;
+            color: white;
+            padding: 15px;
+            font-size: 22px;
             font-weight: bold;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        .hidden {
-            display: none;
-        }
-        .show {
-            display: block;
-            text-align: center;
-            padding: 30px;
-            background-color: #e9ecef;
-        }
-        .product-description {
-            display: none;
+
+        /* Container Produk */
+        .container {
             padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .produk {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 Kolom */
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
             margin-top: 20px;
+        }
+
+        .produk-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .produk-item:hover {
+            transform: scale(1.1);
+        }
+
+        .produk-item img {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+        }
+
+        .produk-item p {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Pop-up Deskripsi Produk */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px; /* Diperbesar agar lebih nyaman */
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 400px;
+            z-index: 2000;
+            text-align: center;
+        }
+
+        .popup h3 {
+            font-size: 28px; /* Perbesar judul */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            font-size: 20px; /* Perbesar deskripsi produk */
+            line-height: 1.5;
+        }
+
+        .popup button {
+            margin-top: 15px;
+            padding: 12px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ff0000;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .produk {
+                grid-template-columns: 1fr; /* 1 Kolom di HP */
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- Tampilan Selamat Datang -->
-<div class="header show" id="welcomeScreen">
-    <h1>Selamat Datang Di Toko Zeet Hosting</h1>
-    <img src="logo6.png" alt="Logo Zeet Hosting" width="150px">
-</div>
-
-<!-- Animasi Marquee -->
-<div class="marquee">
-    <span> JANGAN LUPA UNTUK MEMBELI KARNA SUDAH TERUJI❗</span>
-</div>
-
-<!-- Tampilan Produk -->
-<div class="product-container hidden" id="productScreen">
-    <div class="product" onclick="showProductDetails('botWA')">
-        <img src="logo4.png" alt="Bot WA">
-        <h3>Bot WA</h3>
-        <p>Bot WhatsApp untuk automasi pesan Anda.</p>
+    <!-- Halaman Loading -->
+    <div id="loading">
+        <h1>Selamat Datang Di Toko Zeet Hosting</h1>
+        <img src="logo6.png" alt="Logo Zeet Hosting">
     </div>
-    <div class="product" onclick="showProductDetails('surxrat')">
-        <img src="logo3.png" alt="Surxrat">
-        <h3>Surxrat</h3>
-        <p>Surxrat untuk integrasi WhatsApp dan Telegram.</p>
+
+    <!-- Tulisan Berjalan -->
+    <div class="marquee">
+        <span>JANGAN LUPA MEMBELI KARNA SUDAH TERUJI</span>
     </div>
-    <div class="product" onclick="showProductDetails('panelBotWA')">
-        <img src="logo2.png" alt="Panel Bot WA">
-        <h3>Panel Bot WA</h3>
-        <p>Panel untuk mengelola Bot WhatsApp.</p>
+
+    <!-- Garis Hitam -->
+    <div class="garis-hitam">
+        ©ZeetHosting
     </div>
-    <div class="product" onclick="showProductDetails('scBug')">
-        <img src="logo1.png" alt="SC Bug Telegram/WhatsApp">
-        <h3>SC Bug Telegram/WhatsApp</h3>
-        <p>Solusi untuk bug Telegram/WhatsApp.</p>
+
+    <!-- Container Produk -->
+    <div class="container" id="main-content">
+        <h2 style="font-size: 32px; margin-bottom: 20px;">Produk Kami</h2>
+        <div class="produk">
+            <div class="produk-item" onclick="tampilkanPopup('SC Bug Telegram/WhatsApp', 'SC Bug adalah solusi untuk kalian yang memiliki musuh kerja dan lain sebagai nya sc ini menyerang whatsapp smartphone korban, SC Bug dapat mebuat hp target menjadi crash bahkan bisa sampek mati NB:produk ini hanya saya jual untuk iseng semata..')">
+                <img src="logo1.png" alt="SC Bug Telegram/WhatsApp">
+                <p>SC Bug Telegram/WhatsApp</p>
+            </div>
+
+            <div class="produk-item" onclick="tampilkanPopup('Panel Bot WA', 'Panel bot WhatsApp dengan fitur auto-reply, blast, dan integrasi AI.')">
+                <img src="logo2.png" alt="Panel Bot WA">
+                <p>Panel Bot WA</p>
+            </div>
+
+            <div class="produk-item" onclick="tampilkanPopup('Surxrat', 'Surxrat adalah aplikasi yang bisa mengontrol hp seseorang dengan menggunakan phising kamu bisa mendapatkan lokasi korban menyalakan senter dll Nb:produk ini saya jual hanya untuk iseng semata..')">
+                <img src="logo3.png" alt="Surxrat">
+                <p>Surxrat</p>
+            </div>
+
+            <div class="produk-item" onclick="tampilkanPopup('Bot WA', 'Bot WhatsApp custom dengan berbagai fitur canggih sesuai kebutuhan Anda.')">
+                <img src="logo4.png" alt="Bot WA">
+                <p>Bot WA</p>
+            </div>
+        </div>
     </div>
-</div>
 
-<!-- Deskripsi Produk -->
-<div id="botWA" class="product-description">
-    <h3>Bot WA</h3>
-    <p>Bot WhatsApp adalah sistem otomatisasi yang memungkinkan Anda mengelola pesan masuk dan keluar secara otomatis. Dengan menggunakan Bot WA, Anda dapat memberikan respons cepat kepada pelanggan dan mengotomatisasi berbagai tugas penting seperti pengiriman pesan broadcast, pengelolaan chat, dan lainnya. Solusi ideal untuk bisnis yang membutuhkan komunikasi yang efisien.</p>
-</div>
+    <!-- Pop-up Deskripsi Produk -->
+    <div class="popup" id="popup">
+        <h3 id="popup-title"></h3>
+        <p id="popup-desc"></p>
+        <button onclick="tutupPopup()">Tutup</button>
+    </div>
 
-<div id="surxrat" class="product-description">
-    <h3>Surxrat</h3>
-    <p>Surxrat adalah aplikasi yang bisa mengontrol hp seseorang dengan menggunakan phising kamu bisa mendapatkan lokasi korban menyalakan senter dll Nb:produk ini saya jual hanya untuk iseng semata.</p>
-</div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>Info Lebih lanjut atau berminat dengan produk kami, hubungi melalui:</p>
+        <a href="https://t.me/Killertzy" target="_blank">Telegram</a> |
+        <a href="https://wa.me/62895602220906" target="_blank">WhatsApp</a>
+    </div>
 
-<div id="panelBotWA" class="product-description">
-    <h3>Panel Bot WA</h3>
-    <p>Panel Bot WA adalah sebuah sistem pengelolaan yang memungkinkan Anda untuk mengontrol berbagai bot WhatsApp dengan mudah. Dengan panel ini, Anda dapat mengelola pengaturan, statistik, dan performa bot WhatsApp dengan lebih mudah dan terstruktur. Didesain untuk pengguna yang ingin lebih efisien dalam mengelola bisnis berbasis WhatsApp.</p>
-</div>
+    <script>
+        // Setelah 4 detik, sembunyikan tampilan loading dan tampilkan konten utama
+        setTimeout(() => {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        }, 4000);
 
-<div id="scBug" class="product-description">
-    <h3>SC Bug Telegram/WhatsApp</h3>
-    <p>SC Bug adalah solusi untuk kalian yang memiliki musuh kerja dan lain sebagai nya sc ini menyerang whatsapp smartphone korban, SC Bug dapat mebuat hp target menjadi crash bahkan bisa sampek mati NB:produk ini hanya saya jual untuk iseng semata.</p>
-</div>
-
-<!-- Info Kontak -->
-<div class="contact-info">
-    <p>Info Lebih lanjut Atau berminat Dengan produk kami Hubungi Melalui:</p>
-    <a href="https://t.me/Killertzy" target="_blank">Telegram</a> | 
-    <a href="https://wa.me/62895602220906" target="_blank">WhatsApp</a>
-</div>
-
-<script>
-    // Menampilkan tampilan produk setelah 3 detik
-    setTimeout(function() {
-        document.getElementById('welcomeScreen').classList.add('hidden');
-        document.getElementById('productScreen').classList.remove('hidden');
-    }, 3000);
-
-    // Menampilkan deskripsi produk yang diklik
-    function showProductDetails(productId) {
-        const descriptions = document.querySelectorAll('.product-description');
-        descriptions.forEach(description => {
-            description.style.display = 'none';
-        });
-        const selectedProduct = document.getElementById(productId);
-        if (selectedProduct) {
-            selectedProduct.style.display = 'block';
+        // Fungsi untuk menampilkan pop-up deskripsi produk
+        function tampilkanPopup(judul, deskripsi) {
+            document.getElementById("popup-title").innerText = judul;
+            document.getElementById("popup-desc").innerText = deskripsi;
+            document.getElementById("popup").style.display = "block";
         }
-    }
-</script>
+
+        // Fungsi untuk menutup pop-up
+        function tutupPopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
