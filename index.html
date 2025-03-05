@@ -3,30 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Kami - Jual Panel Bot WA, Script Bot WA/Telegram, Surxrat, Bot WA</title>
+    <title>Zeet Hosting</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            color: #333;
         }
-        header {
+        .header {
+            text-align: center;
+            padding: 50px;
+            background-color: #222;
+            color: white;
+            font-size: 2rem;
+        }
+        .header img {
+            margin-top: 20px;
+        }
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
             background-color: #333;
             color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
+            font-size: 1.5rem;
+            padding: 10px 0;
         }
-        .welcome {
-            font-size: 24px;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 100%;
-            animation: scroll-text 10s linear infinite;
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 10s linear infinite;
         }
-        @keyframes scroll-text {
+        @keyframes marquee {
             0% {
                 transform: translateX(100%);
             }
@@ -34,104 +43,155 @@
                 transform: translateX(-100%);
             }
         }
-        .products {
+        .product-container {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
-            margin-top: 20px;
-            padding: 0 10px;
+            justify-content: center;
+            padding: 30px;
         }
         .product {
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: white;
             margin: 15px;
-            width: 250px;
-            text-align: center;
             padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
         }
         .product:hover {
             transform: scale(1.05);
         }
         .product img {
-            width: 100%;
-            max-height: 150px;
-            object-fit: contain;
-            margin-bottom: 10px;
+            width: 150px; /* Diperbesar */
+            height: 150px; /* Diperbesar */
         }
         .product h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-top: 15px;
         }
         .product p {
-            font-size: 14px;
+            font-size: 0.9rem;
             color: #555;
         }
-        .contact {
+        .contact-info {
             text-align: center;
             margin-top: 30px;
-            font-size: 16px;
+            font-size: 1.2rem;
         }
-        .contact a {
-            color: #25D366; /* Whatsapp color */
+        .contact-info a {
+            color: #4CAF50;
             text-decoration: none;
+            margin: 0 10px;
             font-weight: bold;
         }
-        .contact a:hover {
+        .contact-info a:hover {
             text-decoration: underline;
         }
-        .footer {
-            background-color: #333;
-            color: white;
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
             text-align: center;
-            padding: 15px 0;
-            margin-top: 50px;
+            padding: 30px;
+            background-color: #e9ecef;
+        }
+        .product-description {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="welcome">
-            Selamat datang di toko kami! Jangan Ragu Untuk Membeli Produk Kami❗
-        </div>
-    </header>
 
-    <div class="container">
-        <div class="products">
-            <div class="product">
-                <img src="logo1.png" alt="Script Bot WA/Telegram">
-                <h3>Script Bot Bug Telgram/Whatsapp</h3>
-                <p>Script untuk mengirim pesan virus/virtex yang bisa membuat hp crash dan delay produk ini dijual hanya untuk sekedar iseng jangan disalah gunakan.</p>
-            </div>
-            <div class="product">
-                <img src="logo2.png" alt="Panel Bot WA">
-                <h3>Panel Bot WA</h3>
-                <p>Panel canggih untuk mengelola bot WA Anda dengan mudah dan efektif.</p>
-            </div>
-            <div class="product">
-                <img src="logo3.png" alt="Surxrat">
-                <h3>Surxrat</h3>
-                <p>Surxrat adalah alat untuk mengsadap/mengontrol smartphone orang dengan phising yang memiliki fitur canggih Produk Ini dijual hanya untuk sekedar iseng jangan disalah gunakam.</p>
-            </div>
-            <div class="product">
-                <img src="logo4.png" alt="Bot WA">
-                <h3>Bot WA</h3>
-                <p>Bot WhatsApp otomatis untuk berbagai keperluan bisnis atau personal yang efisien dan efektif.</p>
-            </div>
-        </div>
+<!-- Tampilan Selamat Datang -->
+<div class="header show" id="welcomeScreen">
+    <h1>Selamat Datang Di Toko Zeet Hosting</h1>
+    <img src="logo6.png" alt="Logo Zeet Hosting" width="150px">
+</div>
 
-        <div class="contact">
-            <p>Jika info lebih lanjut atau berminat dengan produk kami, hubungi kami melalui kontak di bawah:</p>
-            <p>
-                <a href="https://wa.me/62895602220906" target="_blank">Whatsapp</a> atau
-                <a href="https://t.me/Killertzy" target="_blank">Telegram</a>
-            </p>
-        </div>
+<!-- Animasi Marquee -->
+<div class="marquee">
+    <span>Selamat datang di toko Zeet Hosting❗</span>
+</div>
+
+<!-- Tampilan Produk -->
+<div class="product-container hidden" id="productScreen">
+    <div class="product" onclick="showProductDetails('botWA')">
+        <img src="logo4.png" alt="Bot WA">
+        <h3>Bot WA</h3>
+        <p>Bot WhatsApp untuk automasi pesan Anda.</p>
     </div>
-
-    <div class="footer">
-        <p>&copy; 2025 Toko Kami. Semua hak dilindungi.</p>
+    <div class="product" onclick="showProductDetails('surxrat')">
+        <img src="logo3.png" alt="Surxrat">
+        <h3>Surxrat</h3>
+        <p>Surxrat untuk integrasi WhatsApp dan Telegram.</p>
     </div>
+    <div class="product" onclick="showProductDetails('panelBotWA')">
+        <img src="logo2.png" alt="Panel Bot WA">
+        <h3>Panel Bot WA</h3>
+        <p>Panel untuk mengelola Bot WhatsApp.</p>
+    </div>
+    <div class="product" onclick="showProductDetails('scBug')">
+        <img src="logo1.png" alt="SC Bug Telegram/WhatsApp">
+        <h3>SC Bug Telegram/WhatsApp</h3>
+        <p>Solusi untuk bug Telegram/WhatsApp.</p>
+    </div>
+</div>
+
+<!-- Deskripsi Produk -->
+<div id="botWA" class="product-description">
+    <h3>Bot WA</h3>
+    <p>Bot WhatsApp adalah sistem otomatisasi yang memungkinkan Anda mengelola pesan masuk dan keluar secara otomatis. Dengan menggunakan Bot WA, Anda dapat memberikan respons cepat kepada pelanggan dan mengotomatisasi berbagai tugas penting seperti pengiriman pesan broadcast, pengelolaan chat, dan lainnya. Solusi ideal untuk bisnis yang membutuhkan komunikasi yang efisien.</p>
+</div>
+
+<div id="surxrat" class="product-description">
+    <h3>Surxrat</h3>
+    <p>Surxrat adalah aplikasi integrasi yang memudahkan Anda untuk mengelola bot WhatsApp dan Telegram secara bersamaan. Dengan Surxrat, Anda dapat menghubungkan dua platform sekaligus, mempermudah komunikasi antara pelanggan melalui Telegram dan WhatsApp dengan lebih efisien. Ideal untuk bisnis yang membutuhkan solusi multi-platform.</p>
+</div>
+
+<div id="panelBotWA" class="product-description">
+    <h3>Panel Bot WA</h3>
+    <p>Panel Bot WA adalah sebuah sistem pengelolaan yang memungkinkan Anda untuk mengontrol berbagai bot WhatsApp dengan mudah. Dengan panel ini, Anda dapat mengelola pengaturan, statistik, dan performa bot WhatsApp dengan lebih mudah dan terstruktur. Didesain untuk pengguna yang ingin lebih efisien dalam mengelola bisnis berbasis WhatsApp.</p>
+</div>
+
+<div id="scBug" class="product-description">
+    <h3>SC Bug Telegram/WhatsApp</h3>
+    <p>SC Bug adalah solusi untuk mengatasi berbagai masalah teknis yang terjadi pada Telegram atau WhatsApp. Jika Anda mengalami bug atau kesulitan teknis, SC Bug dapat membantu memperbaiki masalah tersebut. Solusi cepat dan efektif untuk menjaga kelancaran komunikasi Anda di platform ini.</p>
+</div>
+
+<!-- Info Kontak -->
+<div class="contact-info">
+    <p>Info Lebih lanjut Atau berminat Dengan produk kami Hubungi Melalui:</p>
+    <a href="https://t.me/Killertzy" target="_blank">Telegram</a> | 
+    <a href="https://wa.me/62895602220906" target="_blank">WhatsApp</a>
+</div>
+
+<script>
+    // Menampilkan tampilan produk setelah 3 detik
+    setTimeout(function() {
+        document.getElementById('welcomeScreen').classList.add('hidden');
+        document.getElementById('productScreen').classList.remove('hidden');
+    }, 3000);
+
+    // Menampilkan deskripsi produk yang diklik
+    function showProductDetails(productId) {
+        const descriptions = document.querySelectorAll('.product-description');
+        descriptions.forEach(description => {
+            description.style.display = 'none';
+        });
+        const selectedProduct = document.getElementById(productId);
+        if (selectedProduct) {
+            selectedProduct.style.display = 'block';
+        }
+    }
+</script>
+
 </body>
 </html>
