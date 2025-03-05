@@ -3,88 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZEET HOSTING - Login</title>
+    <title>Toko Kami - Jual Panel Bot WA, Script Bot WA/Telegram, Surxrat, Bot WA</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .login-container {
-            background-color: #2c3e50;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-            color: #fff;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .input-field {
-            margin-bottom: 15px;
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+            background-color: #f4f4f4;
             color: #333;
         }
-
-        .input-field:focus {
-            outline: none;
-            border: 2px solid #3498db;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #3498db;
+        header {
+            background-color: #333;
             color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #2980b9;
-        }
-
-        .footer {
             text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .welcome {
+            font-size: 24px;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            animation: scroll-text 10s linear infinite;
+        }
+        @keyframes scroll-text {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
             margin-top: 20px;
-            font-size: 0.8rem;
+            padding: 0 10px;
         }
-
-        .footer a {
-            color: #3498db;
+        .product {
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 250px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .product h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .product p {
+            font-size: 14px;
+            color: #555;
+        }
+        .contact {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+        .contact a {
+            color: #25D366; /* Whatsapp color */
             text-decoration: none;
+            font-weight: bold;
         }
-
-        .footer a:hover {
+        .contact a:hover {
             text-decoration: underline;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="welcome">
+            Selamat datang di toko kami!
+        </div>
+    </header>
 
-    <div class="login-container">
-        <h2>ZEET HOSTING</h2>
-        <form action="#" method="POST">
-            <input type="text" class="input-field" placeholder="Username" required>
-            <input type="password" class="input-field" placeholder="Password" required>
-            <button type="submit" class="btn">Login</button>
-        </form>
-        <div clas
+    <div class="container">
+        <div class="products">
+            <div class="product">
+                <img src="logo1.png" alt="Script Bot WA/Telegram">
+                <h3>Script Bot WA/Telegram</h3>
+                <p>Script untuk membuat bot WhatsApp atau Telegram yang mudah digunakan dan terjangkau.</p>
+            </div>
+            <div class="product">
+                <img src="logo2.png" alt="Panel Bot WA">
+                <h3>Panel Bot WA</h3>
+                <p>Panel canggih untuk mengelola bot WA Anda dengan mudah dan efektif.</p>
+            </div>
+            <div class="product">
+                <img src="logo3.png" alt="Surxrat">
+                <h3>Surxrat</h3>
+                <p>Surxrat adalah alat untuk meningkatkan performa bot WA Anda dan memberikan fitur canggih.</p>
+            </div>
+            <div class="product">
+                <img src="logo4.png" alt="Bot WA">
+                <h3>Bot WA</h3>
+                <p>Bot WhatsApp otomatis untuk berbagai keperluan bisnis atau personal yang efisien dan efektif.</p>
+            </div>
+        </div>
+
+        <div class="contact">
+            <p>Jika info lebih lanjut atau berminat dengan produk kami, hubungi kami melalui kontak di bawah:</p>
+            <p>
+                <a href="https://wa.me/62895602220906" target="_blank">Whatsapp</a> atau
+                <a href="https://t.me/Killertzy" target="_blank">Telegram</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Toko Kami. Semua hak dilindungi.</p>
+    </div>
+</body>
+</html>
